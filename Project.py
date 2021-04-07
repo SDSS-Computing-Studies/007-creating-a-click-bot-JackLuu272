@@ -4,8 +4,8 @@ from PIL import ImageGrab
 from PIL import ImageOps
 from numpy import *
 
-replay = (665,482)
-dino = (435,493)
+replay = (675,475)
+dino = (435,495)
 
 def reset():
     pyautogui.click(replay)
@@ -16,11 +16,11 @@ def spce():
     pyautogui.keyDown('space')
 
 def dinosa():
-    fossil = (dino[0]+60, dino[1]+5, dino[1]+160, dino[0]+10)
+    fossil = (dino[0]+55, dino[1], dino[1]+145, dino[0]+5)
     sample = ImageGrab.grab(fossil)
     detect = ImageOps.grayscale(sample)
-    construct = array(detect.getcolors())
-    print(construct)
+    iden = array(detect.getcolors())
+    print(iden)
 
 time.sleep(5)
 reset()    
