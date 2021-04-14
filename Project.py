@@ -4,11 +4,12 @@ from PIL import ImageGrab
 from PIL import ImageOps
 from numpy import *
 
-replay = (675,475)
-dino = (435,495)
-
+class cord():
+    replay = (684,402)
+    dino = (126,412)
+#252,414 cord box
 def reset():
-    pyautogui.click(replay)
+    pyautogui.click(cord.replay)
     print("The game will be replayed.")
 
 def spce():
@@ -16,11 +17,11 @@ def spce():
     pyautogui.keyDown('space')
 
 def dinosa():
-    fossil = (dino[0]+55, dino[1], dino[1]+145, dino[0]+5)
+    fossil = (cord.dino[0]+252, cord.dino[1], cord.dino[1]+292, cord.dino[0]+2)
     sample = ImageGrab.grab(fossil)
     detect = ImageOps.grayscale(sample)
-    iden = array(detect.getcolors())
-    print(iden)
+    x = array(detect.getcolors())
+    print(x)
 
 time.sleep(5)
 reset()    
