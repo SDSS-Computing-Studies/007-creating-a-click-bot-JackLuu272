@@ -8,68 +8,59 @@ class cord():
 
 def reset():
     py.click(cord.replay)
-    print("The game will be replayed.")
+    print("The game will be restarted.")
 
-#def spce():
-    #py.keyDown('space')
-    #time.sleep(0.1)
-    #py.keyUp('space')
-    #time.sleep(0.1)
-
-#def dodge():
-    #py.keyDown('down')
-    #time.sleep(0.1)
-    #py.keyUp('down')
-    #time.sleep(0.1)
-
-def dinosa(): 
-    cactus1st = py.locateCenterOnScreen('cactus1.png', grayscale=True, region = (450,480,180,100))
+def dinosa():
+    cactus1st = py.locateCenterOnScreen('cactus1.png', grayscale=True, region = (450,480,110,100))
     if cactus1st is not None:
         py.moveTo(cactus1st)
         print(cactus1st)
         py.press('space')
-        time.sleep(0.1)
-       
+    
 def dinosb():
-    cactus2nd = py.locateCenterOnScreen('cactus2.png', grayscale=True, region = (450,480,180,100))
+    cactus2nd = py.locateCenterOnScreen('cactus2.png', grayscale=True, region = (450,480,110,100))
     if cactus2nd is not None:
         py.moveTo(cactus2nd)
         print(cactus2nd)
         py.press('space')
-        time.sleep(0.1)
         
 def dinosc():
-    cactus3rd = py.locateCenterOnScreen('cactus3.png', grayscale=True, region = (450,480,180,100))
+    cactus3rd = py.locateCenterOnScreen('cactus3.png', grayscale=True, region = (450,480,110,100))
     if cactus3rd is not None:
         py.moveTo(cactus3rd)
         print(cactus3rd)
         py.press('space')
-        time.sleep(0.1)
 
 def dinosd():
-    cactus4th = py.locateCenterOnScreen('cactus4.png', grayscale=True, region = (450,480,180,100))
+    cactus4th = py.locateCenterOnScreen('cactus4.png', grayscale=True, region = (450,480,110,100))
     if cactus4th is not None:
         py.moveTo(cactus4th)
         print(cactus4th)
         py.press('space')
-        time.sleep(0.1)
 
 def pter():
-    supercreep = py.locateCenterOnScreen('scarymonster.png', grayscale=True, region = (450,480,180,100))
+    supercreep = py.locateCenterOnScreen('scarymonster.png', grayscale=True, region = (450,480,110,100))
     if supercreep is not None:
         py.moveTo(supercreep)
         print(supercreep)
         py.press('down')
-        time.sleep(0.1)
-        
-time.sleep(3)
-reset()    
 
-while True:
-    dinosa()
-    dinosb()
-    dinosc()
-    dinosd()
-    pter()
-    
+def over():
+    restart = py.locateCenterOnScreen('end.png')
+    if restart is not None:
+        py.click(cord.replay)
+
+time.sleep(3)
+
+def main():
+    reset()    
+    while True:
+        dinosa()
+        dinosb()
+        dinosc()
+        dinosd()
+        pter()
+        over()
+        
+main()
                                     
