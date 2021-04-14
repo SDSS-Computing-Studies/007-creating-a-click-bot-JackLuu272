@@ -1,8 +1,5 @@
-import pyautogui
+import pyautogui as py
 import time
-from PIL import ImageGrab
-from PIL import ImageOps
-from numpy import *
 
 class cord():
     replay = (674,477)
@@ -10,29 +7,60 @@ class cord():
     # box 449,512
 
 def reset():
-    pyautogui.click(cord.replay)
+    py.click(cord.replay)
     print("The game will be replayed.")
 
-def spce():
-    pyautogui.keyDown('space')
-    time.sleep(0.1)
-    pyautogui.keyUp('space')
-    time.sleep(0.1)
+#def spce():
+    #py.keyDown('space')
+    #time.sleep(0.1)
+    #py.keyUp('space')
+    #time.sleep(0.1)
+
+#def dodge():
+    #py.keyDown('down')
+    #time.sleep(0.1)
+    #py.keyUp('down')
+    #time.sleep(0.1)
 
 def dinosa(): 
-    fossil = (cord.dino[0]+ 19, cord.dino[1], cord.dino[1]+ 3, cord.dino[0]+29)
-    sample = ImageGrab.grab(fossil)
-    detect = ImageOps.grayscale(sample)
-    a = array(detect.getcolors())
-    print(a.sum())         
+    cactus1st = py.locateCenterOnScreen('cactus1.png', grayscale=True, region = (450,480,25,38))
+    if cactus1st is not None:
+        py.moveTo(cactus1st)
+        print(cactus1st)
+        py.press('space')
+        time.sleep(0.1)
+       
+def dinosb():
+    cactus2nd = py.locateCenterOnScreen('cactus2.png', grayscale=True, region = (450,480,25,38))
+    if cactus2nd is not None:
+        py.moveTo(cactus2nd)
+        print(cactus2nd)
+        py.press('space')
+        time.sleep(0.1)
+        
+def dinosc():
+    cactus3rd = py.locateCenterOnScreen('cactus3.png', grayscale=True, region = (450,480,25,38))
+    if cactus3rd is not None:
+        py.moveTo(cactus3rd)
+        print(cactus3rd)
+        py.press('space')
+        time.sleep(0.1)
 
-time.sleep(4.5)
+def pter():
+    supercreep = py.locateCenterOnScreen('scarymonster.png', grayscale=True, region = (450,480,25,38))
+    if supercreep is not None:
+        py.moveTo(supercreep)
+        print(supercreep)
+        py.press('down')
+        time.sleep(0.1)
+        
+time.sleep(3)
 reset()    
 
 while True:
     dinosa()
-    #if (dinosa() != ):
-        #spce()
-        #time.sleep(0.001)
-
+    dinosb()
+    dinosc()
+    pter()
+    
                                     
