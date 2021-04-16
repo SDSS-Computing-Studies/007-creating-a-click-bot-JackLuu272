@@ -1,25 +1,32 @@
-import pyautogui as py
-import time 
+import pyautogui 
+from pynput.mouse import Button, Controller
+import keyboard 
 
-def clicktiles1():
-    presser1 = locateCenterOnScreen('tiles.png', grayscale = True, region=(590,572,100,100))
-    if presser1 is not None:
-        py.mouseDown(x=590,y=572)
+mouse = Controller()
 
-def clicktitles2():
-    presser2 = locateCenterOnScreen('Tiles.png', grayscale = True, region=(524,575,100,100))
-    if presser2 is not None:
-        py.mouseDown(x=524,y=575)
+def clicking(x,y):
+    mouse.position=(x,y)
+    mouse.click(Button.left, 1)
+
+
+#X:  519 Y:  494 RGB: (235, 235, 236)
+#X:  614 Y:  493 RGB: ( 59,  56,  63)
+#X:  720 Y:  509 RGB: (235, 235, 236)
+#X:  815 Y:  501 RGB: (235, 235, 236)
+
+yCoord = 500
+
+while keyboard.is_pressed("q") == False:
+
+    try:
+        if pyautogui.pixel(519,yCoord)[0] == 59:
+            clicking(519,yCoord)
+        elif pyautogui.pixel(614,yCoord)[0] == 59:
+            clicking(614,yCoord)
+        elif pyautogui.pixel(720,yCoord)[0] == 59:
+            clicking(720,yCoord)
+        elif pyautogui.pixel(815,yCoord)[0] == 59:
+            clicking(815,yCoord)
     
-def clicktitles3():
-    presser3 = locateCenterOnScreen('Tiles.png', grayscale = True, region=(471,590,100,100))
-    if presser3 is not None:
-        py.mouseDown(x=471,y=590)
-    
-def clicktitles4():
-    presser4 = locateCenterOnScreen('Tiles.png', grayscale = True, region=(395,599,100,100))
-    if presser4 is not None:
-        py.mouseDown(x=395,y=599)
-
-
-    
+    except:
+        print("Button is not found")

@@ -71,7 +71,6 @@ def main():
     reset()
     while True:
         dinosa()
-        
         dinosb()
         dinosc()
         dinosd()
